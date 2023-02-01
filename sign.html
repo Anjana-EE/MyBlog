@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation - Easy Tutorials YouTube Channel</title>
+    <link rel="stylesheet" href="signup.css">
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+</head>
+<body style="background-color: rgb(235, 239, 239);">
+    <!--Sign in Table-->
+    <table  style="border:1px solid black;margin-left:auto;margin-right:auto;" >
+        <h2 style="text-align: center;">Sign Up</h2>
+        <tr>
+    <form name="myform" method="post" onsubmit="return validateform()" >  
+    <td>Name <input type="text" name="name"></tr>  
+        <tr>
+   <td style> Number: <input type="text" name="num"><span id="numloc"></span></tr>
+    <tr>
+   <td> Email:<input type="email" placeholder="mail id" id="email" onkeyup="validateEmail()">
+    <tr>
+    <span id="email-error"></span></tr>
+    <tr>
+    <td>Password: <input type="password" name="password"></tr> 
+        <tr>
+    <td><button type="button" class="btn btn-primary">Submit</button> </tr>
+    </form>
+</table>  
+        <script >  
+            function validateform(){  
+            var name=document.myform.name.value;  
+            var password=document.myform.password.value;  
+              
+            if (name==null || name==""){  
+              alert("Name can't be blank");  
+              return false;  
+            }else if(password.length<6){  
+              alert("Password must be at least 6 characters long.");  
+              return false;  
+              }  
+              var num=document.myform.num.value;  
+if (isNaN(num)){  
+  document.getElementById("numloc").innerHTML="Enter Numeric value only";  
+  return false;  
+}else{  
+  return true;  
+  }  
+                   var email = document.getElementById('email');
+                   var emailError = document.getElementById('email-error');
+                    if(email.value.length == 0){
+                    emailError.innerHTML = "email id required";
+                    return false;
+                     }
+                     else if(!email.value.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)){
+                     emailError.innerHTML="enter a valid email id";
+                     return false;
+                      }  
+            }  
+            </script>    
+            
+  </body>
+  </html>
